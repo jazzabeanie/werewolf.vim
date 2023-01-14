@@ -20,6 +20,11 @@ function! Werewolf()
 endfunction
 
 function! Werewolf#transform(current, switch)
+  if strftime("%H") >= g:werewolf_day_start && strftime("%H") < g:werewolf_day_end
+        execute "set background=light"
+  else
+        execute "set background=dark"
+  endif
 	let i = 0
 	while i < len(a:current)
 		if g:colors_name ==# a:current[i]
